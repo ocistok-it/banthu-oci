@@ -1,0 +1,43 @@
+name: Deploy iOS app to TestFlight
+
+on:
+    push:
+        branches:
+            - 'releases-dev/**'
+
+jobs:
+    deploy-ios-to-internal-test:
+        runs-on: macos-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                fetch-depth: 0
+            - name: Install Flutter
+              uses: subosito/flutter-action@v2
+              with:
+                channel: stable
+                flutter-version: 3.32.4
+                cache: true
+            - name: Setup flutterfire_cli
+              run: dart pub global activate flutterfire_cli
+            - name: Setup xcode version
+              uses: maxim-lobanov/setup-xcode@v1
+              with:
+                xcode-version: '16.2'
+            - name: Check xcode and clang version
+              run: |
+                xcodebuild -version
+                clang --version
+            - name: Run flutter pub get
+              run: flutter pub get
+            - name: Execute fastlane to build, archive and upload iOS app to TestFlight
+              env:
+                MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+                MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+                ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+                ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+                ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+              run: |
+                cd ios
+                fastlane release_beta

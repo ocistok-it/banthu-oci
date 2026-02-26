@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "425197207653",
+    "project_id": "banthu-85a59",
+    "storage_bucket": "banthu-85a59.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425197207653:android:991c3a51fde300e5dcc68c",
+        "android_client_info": {
+          "package_name": "com.banthu.bnth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpWjBdRHBzjgXMEgWTXIlpvT_ugMsnhs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425197207653:android:2e609dddcd93c739dcc68c",
+        "android_client_info": {
+          "package_name": "com.banthu.bnth.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpWjBdRHBzjgXMEgWTXIlpvT_ugMsnhs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

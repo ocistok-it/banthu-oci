@@ -1,0 +1,25 @@
+# name: Deploy Android app to Google Play Internal Test
+
+# on:
+#     push:
+#         branches:
+#             - 'releases-dev/**'
+
+# jobs:
+#     deploy-android-to-internal-test:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Checkout code
+#               uses: actions/checkout@v4
+#               with:
+#                 fetch-depth: 0
+#             - name: Install Flutter
+#               uses: subosito/flutter-action@v2
+#               with:
+#                 channel: stable
+#                 flutter-version: 3.32.4
+#                 cache: true
+#             - name: Run flutter pub get
+#               run: flutter pub get
+#             - name: Build app to AppBundle
+#               run: flutter build appbundle --flavor development

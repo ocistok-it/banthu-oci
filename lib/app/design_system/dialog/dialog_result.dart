@@ -1,0 +1,1 @@
+enum DialogResult { ok, cancel }
